@@ -28,10 +28,15 @@ export default function AssignmentRoutes(app) {
     const assignIndex = Database.assignments.findIndex(
       (a) => a._id === assignId
     );
-    Database.assignments[assignIndex] = {
+
+    const updatedAssignment = {
       ...Database.assignments[assignIndex],
       ...req.body,
     };
+
+    console.log(updatedAssignment);
+
+    Database.assignments[assignIndex] = updatedAssignment;
     res.sendStatus(204);
   });
 

@@ -28,7 +28,7 @@ const Lab5 = (app) => {
       id: new Date().getTime(),
     };
     todos.push(newTodo);
-    res.json(newTodo);
+    res.send(todos);
   });
 
   app.delete("/a5/todos/:id", (req, res) => {
