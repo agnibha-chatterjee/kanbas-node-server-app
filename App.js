@@ -12,11 +12,19 @@ const app = express();
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send({ status: "ok" });
+});
+
 ModuleRoutes(app);
 CourseRoutes(app);
 AssignmentRoutes(app);
 Lab5(app);
 Hello(app);
-app.listen(4000, function () {
-  console.log("Server is running on port 4000");
+
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, function () {
+  console.log(`Server is running on port ${PORT}`);
 });

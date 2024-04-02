@@ -20,7 +20,6 @@ export default function AssignmentRoutes(app) {
 
     Database.assignments.push(assignment);
 
-    console.log(Database.assignments, "adddddddedd");
     res.send(assignment);
   });
 
