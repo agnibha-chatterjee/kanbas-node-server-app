@@ -17,7 +17,12 @@ mongoose.connect(process.env.MONGO_URI);
 const app = express();
 
 app.use(morgan("dev"));
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL ?? "*",
+    credentials: true,
+  })
+);
 
 const sessionOptions = {
   secret: process.env.SESSION_SECRET,
@@ -30,7 +35,6 @@ if (process.env.NODE_ENV !== "development") {
   sessionOptions.cookie = {
     sameSite: "none",
     secure: true,
-    maxAge: 60000,
   };
 }
 
