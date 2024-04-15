@@ -17,12 +17,7 @@ mongoose.connect(process.env.MONGO_URI);
 const app = express();
 
 app.use(morgan("dev"));
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.FRONTEND_URL,
-  })
-);
+app.use(cors());
 
 const sessionOptions = {
   secret: process.env.SESSION_SECRET,
