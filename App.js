@@ -12,9 +12,7 @@ import cors from "cors";
 import session from "express-session";
 import mongoose from "mongoose";
 
-mongoose.connect(
-  "mongodb+srv://chatterjeeag:bMRyknHel0fqYuw4@master-cluster.tzwazee.mongodb.net/kanbas?retryWrites=true&w=majority&appName=master-cluster"
-);
+mongoose.connect(process.env.MONGO_URI);
 
 const app = express();
 
@@ -27,9 +25,9 @@ app.use(
 );
 
 const sessionOptions = {
-  secret: "keyboardcat",
+  secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 };
 
 if (process.env.NODE_ENV !== "development") {
@@ -37,6 +35,7 @@ if (process.env.NODE_ENV !== "development") {
   sessionOptions.cookie = {
     sameSite: "none",
     secure: true,
+    maxAge: 60000,
   };
 }
 
