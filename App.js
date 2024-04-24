@@ -9,6 +9,8 @@ import ModuleRoutes from "./Kanbas/modules/routes.js";
 import QuizRoutes from "./Kanbas/quizzes/routes.js";
 import AssignmentRoutes from "./Kanbas/assignments/router.js";
 import UserRoutes from "./Users/routes.js";
+import QuestionsRoutes from "./Kanbas/questions/routes.js";
+
 import cors from "cors";
 import session from "express-session";
 import mongoose from "mongoose";
@@ -20,7 +22,7 @@ const app = express();
 app.use(morgan("dev"));
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? "*",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -50,6 +52,7 @@ ModuleRoutes(app);
 CourseRoutes(app);
 AssignmentRoutes(app);
 QuizRoutes(app);
+QuestionsRoutes(app);
 Lab5(app);
 Hello(app);
 UserRoutes(app);

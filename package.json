@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon App.js",
-    "start": "node App.js"
+    "start": "node App.js",
+    "start:lt": "lt --port 4000"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "localtunnel": "^2.0.2",
     "nodemon": "^3.1.0"
   },
   "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f"
