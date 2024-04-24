@@ -20,7 +20,7 @@ const quizSchema = new mongoose.Schema(
     available: { type: Date, required: true },
     until: { type: Date, required: true },
     course: String,
-    isPublished: { type: Boolean, required: true },
+    isPublished: { type: Boolean, default: false },
     noOfQuestions: { type: Number, required: true },
   },
   { collection: "quizzes" }

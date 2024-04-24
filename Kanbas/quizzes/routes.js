@@ -10,7 +10,7 @@ export default function QuizRoutes(app) {
   const updateQuiz = async (req, res) => {
     const { id } = req.params;
     const status = await dao.updateQuiz(id, req.body);
-    res.sendStatus(204).json(status);
+    res.status(200).send(status);
   };
 
   const getAllQuizzes = async (req, res) => {
